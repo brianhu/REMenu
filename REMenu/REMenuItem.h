@@ -25,6 +25,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, ItemType) {
+      QueryMode,
+          Channel
+
+};
+
 @interface REMenuItem : NSObject
 
 @property (strong, readwrite, nonatomic) UIColor *backgroundColor;
@@ -59,6 +65,9 @@
 @property (copy, readwrite, nonatomic) void (^action)(REMenuItem *item);
 @property (assign, readwrite, nonatomic) NSInteger tag;
 @property (strong, readwrite, nonatomic) UIView *customView;
+
+@property (nonatomic) ItemType type;
+@property (strong, nonatomic) NSDictionary *data;
 
 - (id)initWithTitle:(NSString *)title image:(UIImage *)image highlightedImage:(UIImage *)highlightedImage action:(void (^)(REMenuItem *item))action;
 - (id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle image:(UIImage *)image highlightedImage:(UIImage *)highlightedImage action:(void (^)(REMenuItem *item))action;
